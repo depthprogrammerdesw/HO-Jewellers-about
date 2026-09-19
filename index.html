@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="HO Jewellers — About Us, quality standards and services.">
+  <title>About Us | HO Jewellers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#050505;
+      --bg2:#0b0b0b;
+      --card:rgba(20,20,20,.78);
+      --gold:#d6a84f;
+      --gold2:#f5d78b;
+      --silver:#d9dde2;
+      --muted:#a8a8a8;
+      --line:rgba(214,168,79,.25);
+      --white:#f7f7f7;
+      --wa:#25D366;
+      --radius:24px;
+      --shadow:0 20px 70px rgba(0,0,0,.45);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      min-height:100vh;
+      overflow-x:hidden;
+      color:var(--white);
+      background:
+        radial-gradient(circle at 50% -10%,rgba(214,168,79,.10),transparent 34%),
+        linear-gradient(180deg,#020202 0%,#080808 48%,#030303 100%);
+      font-family:Montserrat,Arial,sans-serif;
+      padding-top:env(safe-area-inset-top);
+      padding-bottom:env(safe-area-inset-bottom);
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .page{
+      padding-bottom:calc(105px + env(safe-area-inset-bottom));
+    }
+    .container{width:min(1120px,92%);margin:auto}
+
+    /* ===== TOP BAR ===== */
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:1000;
+      padding-top:env(safe-area-inset-top);
+      background:rgba(3,3,3,.78);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.07);
+    }
+    .nav{
+      height:68px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      font-family:"Cormorant Garamond",serif;
+      font-size:28px;
+      font-weight:700;
+      letter-spacing:.10em;
+      color:var(--gold2);
+      white-space:nowrap;
+    }
+    .brand span{color:#fff}
+
+    .nav-links{
+      display:flex;
+      gap:22px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+    }
+    .nav-links a{color:#cfcfcf;transition:.25s}
+    .nav-links a:hover{color:var(--gold2)}
+
+    .menu-btn{
+      display:none;
+      width:44px;height:40px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:rgba(255,255,255,.04);
+      color:#fff;
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      min-height:92svh;
+      position:relative;
+      display:grid;
+      place-items:center;
+      isolation:isolate;
+      overflow:hidden;
+      padding:110px 0 70px;
+      background:
+        linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.78)),
+        url("assets/ho-jewellers-theme.jpg") center/cover no-repeat;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      background:
+        radial-gradient(circle at 50% 48%,transparent 0%,rgba(0,0,0,.20) 42%,rgba(0,0,0,.88) 100%);
+    }
+    .hero-content{
+      width:min(900px,92%);
+      text-align:center;
+      animation:heroIn 1.1s ease both;
+    }
+    .eyebrow{
+      display:inline-flex;
+      padding:8px 14px;
+      border:1px solid rgba(245,215,139,.35);
+      border-radius:999px;
+      color:var(--gold2);
+      background:rgba(0,0,0,.38);
+      font-size:11px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      backdrop-filter:blur(8px);
+    }
+    h1{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(58px,10vw,118px);
+      line-height:.83;
+      margin:28px 0 22px;
+      background:linear-gradient(100deg,#fff4c8 0%,#d6a84f 35%,#fff 58%,#b88932 100%);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .hero p{
+      max-width:650px;
+      margin:auto;
+      color:#d4d4d4;
+      line-height:1.9;
+      font-size:14px;
+    }
+    .scroll-cue{
+      margin:34px auto 0;
+      color:var(--gold2);
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      animation:bob 1.8s ease-in-out infinite;
+    }
+
+    /* ===== SECTIONS ===== */
+    section{
+      position:relative;
+      padding:105px 0;
+      scroll-margin-top:80px;
+    }
+    .section-head{
+      max-width:750px;
+      margin:0 auto 52px;
+      text-align:center;
+    }
+    .section-kicker{
+      color:var(--gold2);
+      font-size:11px;
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    h2{
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(42px,6vw,68px);
+      line-height:1;
+      color:#f7f2e5;
+      margin-bottom:18px;
+    }
+    .section-head p{
+      color:var(--muted);
+      line-height:1.85;
+      font-size:14px;
+    }
+    .gold-line{
+      width:90px;height:1px;
+      margin:22px auto 0;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    }
+
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .card{
+      position:relative;
+      overflow:hidden;
+      padding:32px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018)),
+        var(--card);
+      box-shadow:var(--shadow);
+      transition:transform .35s,border-color .35s,box-shadow .35s;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      width:180px;height:180px;
+      right:-90px;top:-90px;
+      background:radial-gradient(circle,rgba(214,168,79,.17),transparent 68%);
+      pointer-events:none;
+    }
+    .card:hover{
+      transform:translateY(-7px);
+      border-color:rgba(214,168,79,.42);
+      box-shadow:0 25px 80px rgba(0,0,0,.58);
+    }
+    .icon{
+      width:52px;height:52px;
+      display:grid;
+      place-items:center;
+      margin-bottom:22px;
+      border:1px solid var(--line);
+      border-radius:15px;
+      color:var(--gold2);
+      background:rgba(214,168,79,.07);
+      font-size:22px;
+    }
+    .card h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:31px;
+      color:#fff;
+      margin-bottom:12px;
+    }
+    .card p{
+      color:#bcbcbc;
+      line-height:1.85;
+      font-size:14px;
+    }
+    .quote{
+      margin-top:22px;
+      padding:18px 20px;
+      border-left:2px solid var(--gold);
+      color:#e4e4e4;
+      font-family:"Cormorant Garamond",serif;
+      font-size:22px;
+      line-height:1.35;
+    }
+
+    /* ===== OFFICIAL LOGO CONTAINER ===== */
+    .logo-container{
+      width:150px;
+      height:150px;
+      aspect-ratio:1/1;
+      margin:0 auto 27px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid rgba(214,168,79,.45);
+      background:
+        linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.012)),
+        #080808;
+      box-shadow:
+        0 0 0 7px rgba(214,168,79,.035),
+        0 18px 45px rgba(0,0,0,.45);
+    }
+    .logo-container img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      padding:15px;
+    }
+    .logo-placeholder{
+      text-align:center;
+      color:#8e8e8e;
+      font-size:10px;
+      line-height:1.5;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      padding:20px;
+    }
+
+    /* ===== STANDARDS ===== */
+    .standards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:24px;
+    }
+    .standard{
+      padding:22px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      background:rgba(255,255,255,.025);
+      text-align:center;
+    }
+    .standard img{
+      height:62px;
+      width:auto;
+      max-width:110px;
+      object-fit:contain;
+      margin:0 auto 13px;
+      filter:drop-shadow(0 8px 20px rgba(255,255,255,.08));
+    }
+    .standard h4{color:#fff;font-size:13px;margin-bottom:7px}
+    .standard p{color:#999;font-size:11px;line-height:1.6}
+
+    /* ===== NEW GOLD OPTIONS ===== */
+    .gold-options{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:24px;
+    }
+    .gold-option{
+      position:relative;
+      padding:27px 22px;
+      border:1px solid rgba(214,168,79,.18);
+      border-radius:20px;
+      background:linear-gradient(145deg,rgba(214,168,79,.055),rgba(255,255,255,.018));
+      overflow:hidden;
+      transition:.35s ease;
+    }
+    .gold-option:hover{
+      transform:translateY(-5px);
+      border-color:rgba(214,168,79,.45);
+    }
+    .purity{
+      font-family:"Cormorant Garamond",serif;
+      font-size:50px;
+      line-height:1;
+      color:var(--gold2);
+      margin-bottom:8px;
+    }
+    .gold-option h3{font-size:15px;margin-bottom:9px;color:#fff}
+    .gold-option p{color:#9e9e9e;font-size:12px;line-height:1.7}
+    .badge{
+      display:inline-block;
+      margin-bottom:15px;
+      padding:5px 9px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--gold2);
+      font-size:9px;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+    }
+
+    /* ===== SERVICES ===== */
+    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .service{
+      display:flex;
+      align-items:flex-start;
+      gap:17px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,.075);
+      border-radius:20px;
+      background:rgba(255,255,255,.025);
+      transition:.3s ease;
+    }
+    .service:hover{
+      transform:translateX(5px);
+      border-color:rgba(214,168,79,.34);
+      background:rgba(214,168,79,.045);
+    }
+    .service .mini{
+      flex:0 0 43px;
+      height:43px;
+      display:grid;
+      place-items:center;
+      border-radius:13px;
+      color:var(--gold2);
+      border:1px solid var(--line);
+      background:rgba(214,168,79,.07);
+      font-size:18px;
+    }
+    .service h3{font-size:14px;color:#eee;margin-bottom:7px}
+    .service p{color:#999;font-size:12px;line-height:1.65}
+
+    /* ===== STORE ===== */
+    .store{display:grid;grid-template-columns:1.15fr .85fr;gap:24px}
+    .store-panel{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      padding:34px;
+    }
+    .location{display:flex;gap:16px;align-items:flex-start;margin:24px 0}
+    .location-icon{
+      width:48px;height:48px;flex:0 0 48px;
+      display:grid;place-items:center;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:rgba(214,168,79,.07);
+    }
+    .location-icon img{width:25px;height:25px}
+    .location h3{font-size:14px;margin-bottom:6px}
+    .location p{color:#9f9f9f;line-height:1.7;font-size:13px}
+
+    .map-btn,.connect-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:50px;
+      padding:0 20px;
+      border-radius:14px;
+      border:1px solid rgba(245,215,139,.38);
+      background:linear-gradient(135deg,#c89435,#f0ce7d);
+      color:#100d06;
+      font-weight:700;
+      font-size:12px;
+      box-shadow:0 10px 30px rgba(214,168,79,.16);
+      transition:.3s ease;
+    }
+    .map-btn:hover,.connect-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 15px 38px rgba(214,168,79,.26);
+    }
+    .map-btn img{width:20px;height:20px}
+    .gst{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:15px;
+      padding:17px 18px;
+      border-radius:16px;
+      background:rgba(255,255,255,.035);
+      border:1px solid rgba(255,255,255,.07);
+      margin-top:25px;
+    }
+    .gst span:first-child{
+      color:#999;font-size:12px;
+      text-transform:uppercase;letter-spacing:.12em;
+    }
+    .gst strong{color:#eee;font-size:13px;letter-spacing:.08em}
+
+    .trust-box{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      min-height:100%;
+      text-align:center;
+    }
+    .trust-box h3{
+      font-family:"Cormorant Garamond",serif;
+      font-size:33px;
+      margin-bottom:9px;
+    }
+    .trust-box p{color:#999;max-width:320px;font-size:13px;line-height:1.75}
+
+    /* ===== CTA ===== */
+    .cta{text-align:center;padding:80px 0 25px}
+    .cta-box{
+      position:relative;
+      overflow:hidden;
+      border:1px solid rgba(214,168,79,.25);
+      border-radius:30px;
+      padding:58px 25px;
+      background:
+        radial-gradient(circle at 50% 0%,rgba(214,168,79,.14),transparent 55%),
+        rgba(255,255,255,.025);
+    }
+    .cta-box p{color:#999;font-size:13px;margin-bottom:27px}
+
+    /* ===== WHATSAPP ===== */
+    .whatsapp{
+      position:fixed;
+      z-index:1100;
+      right:18px;
+      bottom:calc(18px + env(safe-area-inset-bottom));
+      width:59px;height:59px;
+      display:grid;place-items:center;
+      border-radius:50%;
+      background:var(--wa);
+      box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 5px rgba(37,211,102,.10);
+      transition:.3s ease;
+      animation:pulse 2.5s infinite;
+    }
+    .whatsapp:hover{transform:scale(1.08)}
+    .whatsapp img{width:31px;height:31px}
+
+    footer{
+      text-align:center;
+      color:#666;
+      font-size:10px;
+      letter-spacing:.08em;
+      padding:28px 0 20px;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(35px);
+      transition:opacity .8s ease,transform .8s ease;
+    }
+    .reveal.show{opacity:1;transform:none}
+
+    @keyframes heroIn{
+      from{opacity:0;transform:translateY(24px) scale(.985)}
+      to{opacity:1;transform:none}
+    }
+    @keyframes bob{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(7px)}
+    }
+    @keyframes pulse{
+      0%,100%{box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 5px rgba(37,211,102,.10)}
+      50%{box-shadow:0 12px 30px rgba(0,0,0,.45),0 0 0 10px rgba(37,211,102,0)}
+    }
+
+    /* ===== MOBILE ===== */
+    @media(max-width:760px){
+      .nav{height:60px}
+      .brand{font-size:24px}
+      .menu-btn{display:block}
+      .nav-links{
+        position:absolute;
+        top:calc(60px + env(safe-area-inset-top));
+        left:4%;right:4%;
+        padding:15px;
+        display:none;
+        flex-direction:column;
+        background:rgba(8,8,8,.97);
+        border:1px solid rgba(255,255,255,.08);
+        border-radius:17px;
+      }
+      .nav-links.open{display:flex}
+      .nav-links a{padding:11px 10px}
+
+      .hero{
+        min-height:78svh;
+        padding-top:125px;
+        background-position:center center;
+      }
+      .hero p{font-size:13px;line-height:1.75}
+      section{padding:78px 0}
+
+      .grid,.services,.store{grid-template-columns:1fr}
+      .standards,.gold-options{grid-template-columns:1fr}
+      .card,.store-panel{padding:25px}
+      .service{padding:18px}
+      .trust-box{min-height:330px}
+
+      .logo-container{
+        width:135px;
+        height:135px;
+      }
+      .cta{padding-top:60px}
+      .whatsapp{width:55px;height:55px;right:15px}
+      .whatsapp img{width:29px;height:29px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#home">HO <span>JEWELLERS</span></a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#standards">Standards</a>
+        <a href="#gold">Purity</a>
+        <a href="#services">Services</a>
+        <a href="#store">Store</a>
+        <a href="#connect">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO: supplied theme image remains unchanged -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">ABOUT OUR JOURNEY</span>
+        <h1>About Us</h1>
+        <p>
+          A journey built on trust, craftsmanship and a commitment to helping
+          every customer find jewellery that fits their occasion, design,
+          requirements and budget.
+        </p>
+        <div class="scroll-cue">Explore ↓</div>
+      </div>
+    </section>
+
+    <!-- FOUNDER & OPERATOR -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Our Story</div>
+          <h2>Founder &amp; Operator</h2>
+          <p>
+            From a livelihood-driven beginning to a trusted jewellery store,
+            HO Jewellers continues to grow through personal attention,
+            quality-focused work and customer trust.
+          </p>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="icon">✦</div>
+            <h3>Founder — Mr. Nishant Kumar Burman</h3>
+            <p>
+              Mr. Nishant Kumar Burman founded the store in <strong>2017</strong>
+              with the aim of creating a sustainable livelihood and building
+              something valuable for the long term. Seeing the potential for
+              growth in the jewellery market, he steadily developed the store
+              into a trusted place for customers.
+            </p>
+            <div class="quote">
+              “Trust is not a feature of the store — it is the foundation.”
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="icon">◈</div>
+            <h3>Operator — Personally Managed</h3>
+            <p>
+              Mr. Nishant Burman personally operates and manages the complete
+              store. From producing elegant collections to maintaining quality
+              and certification requirements, each stage receives direct attention.
+            </p>
+            <br>
+            <p>
+              Customers can request <strong>custom-built ornaments</strong>
+              around their own requirements, design preferences and budget.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- STANDARDS -->
+    <section id="standards">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">Quality &amp; Identification</div>
+          <h2>Standards We Value</h2>
+          <p>
+            We focus on clear product identification and quality information,
+            including BIS hallmarking and HUID wherever applicable.
+          </p>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="standards">
+
+          <div class="standard reveal">
+            <img
+              src="https://www.bis.gov.in/wp-content/uploads/2024/12/BIS-LOGO.png"
+              alt="Official BIS logo">
+            <h4>BIS Hallmark</h4>
+            <p>Official Bureau of Indian Standards mark used in hallmarking.</p>
+          </div>
+
+          <div class="standard reveal">
+            <div style="height:62px;display:grid;place-items:center;font-size:35px;color:#f0ce7d">916</div>
+            <h4>Purity / Fineness</h4>
+            <p>Purity information is marked as part of the hallmark.</p>
+          </div>
+
+          <div class="standard reveal">
+            <div style="height:62px;display:grid;place-items:center;font-size:27px;color:#d9dde2;letter-spacing:.08em">HUID</div>
+            <h4>Unique Identification</h4>
+            <p>Six-digit alphanumeric HUID identifies a hallmarked item.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW PURITY / LAB TEST OPTIONS -->
+    <section id="gold">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div class="section-kicker">More Choices</div>
+          <h2>Purity For Your Budget</h2>
+          <p>
+            Choose a suitable purity according to your requirements and budget.
+            Gold and silver articles can also be made available with a
+            laboratory test report where applicable.
+          </p>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="gold-options">
+
+          <article class="gold-option reveal">
+            <span class="badge">18K Gold</span>
+            <div class="purity">750</div>
+            <h3>750 — 18 Karat</h3>
+            <p>
+              18K gold represented by fineness <strong>750</strong>.
+              A suitable option for customers looking for 18K jewellery.
+            </p>
+          </article>
+
+          <article class="gold-option reveal">
+            <span class="badge">Lab Tested</span>
+            <div class="purity">Au • Ag</div>
+            <h3>Gold &amp; Silver With Lab Test Report</h3>
+            <p>
+              Gold and silver articles can be available with a
+              <strong>laboratory test report</strong>, subject to the
+              applicable product and testing arrangement.
+            </p>
+          </article>
+
+          <article class="gold-option reveal">
+            <span class="badge">Budget Choice</span>
+            <div class="purity">585</div>
+            <h3>14K Gold — 585</h3>
+            <p>
+              <strong>14K gold</strong>, represented by fineness
+              <strong>585</strong>, can be considered when setting a
+              more budget-conscious jewellery requirement.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-kicker">What We Offer</div>
+          <h2>Our Services</h2>
+          <p>
+            A complete range of jewellery-related services, with personal
+            assistance for buying, selling, verification, repair and custom work.
+          </p>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="services">
+
+          <article class="service reveal">
+            <div class="mini">Au</div>
+            <div>
+              <h3>Purchase Gold Articles</h3>
+              <p>Bring your gold articles for evaluation and purchase assistance.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">Ag</div>
+            <div>
+              <h3>Purchase Silver Articles</h3>
+              <p>Silver articles can also be evaluated for purchase.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">₹</div>
+            <div>
+              <h3>Resale of Ornaments</h3>
+              <p>Customers can resell eligible ornaments with transparent and genuine pricing based on the article and prevailing conditions.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">✓</div>
+            <div>
+              <h3>Gold / Silver Verification</h3>
+              <p>Verification assistance is available for gold and silver products.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">⚒</div>
+            <div>
+              <h3>Repair &amp; Replacement</h3>
+              <p>Repair and replacement services are available with suitable offers depending on the work required.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">◇</div>
+            <div>
+              <h3>Other Metal Ornaments</h3>
+              <p>Along with gold and silver, selected imitation / alloy metal ornaments are also available.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">▣</div>
+            <div>
+              <h3>Ornaments as Loan Collateral</h3>
+              <p>Customers seeking financial assistance can enquire about using eligible ornaments as collateral for loans, subject to applicable lender terms and approval.</p>
+            </div>
+          </article>
+
+          <article class="service reveal">
+            <div class="mini">✚</div>
+            <div>
+              <h3>Ear / Nose Piercing</h3>
+              <p>Ear and nose piercing is available with attention to precautions and after-care guidance, using manual or machine-assisted methods.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFLINE STORE -->
+    <section id="store">
+      <div class="container">
+
+        <div class="section-head reveal">
+          <div class="section-kicker">Visit Us</div>
+          <h2>Our Offline Store</h2>
+          <p>
+            Meet us in person, explore the collection and discuss your custom
+            jewellery requirements directly with our team.
+          </p>
+          <div class="gold-line"></div>
+        </div>
+
+        <div class="store">
+
+          <div class="store-panel reveal">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px">
+              Find HO Jewellers
+            </h3>
+
+            <div class="location">
+              <div class="location-icon">
+                <img src="https://cdn.simpleicons.org/googlemaps" alt="Google Maps">
+              </div>
+
+              <div>
+                <h3>Store Location</h3>
+                <p id="storeAddress">
+                  YOUR STORE ADDRESS — replace this in CONFIG below.
+                </p>
+              </div>
+            </div>
+
+            <a class="map-btn" id="mapLink" href="#" target="_blank" rel="noopener">
+              <img src="https://cdn.simpleicons.org/googlemaps" alt="">
+              See in Map
+            </a>
+
+            <div class="gst">
+              <span>GSTIN</span>
+              <strong id="gstin">XXXXXX</strong>
+            </div>
+          </div>
+
+          <!-- REPLACED: round HO with square official-logo image container -->
+          <div class="store-panel trust-box reveal">
+
+            <div class="logo-container">
+              <!--
+                Put your official HO Jewellers logo at:
+                assets/logo.png
+
+                The square container remains exactly the same even when
+                the actual logo is replaced.
+              -->
+              <img id="officialLogo"
+                   src="hologo.png"
+                   alt="HO Jewellers official logo"
+                   onerror="this.style.display='none';document.getElementById('logoPlaceholder').style.display='block';">
+
+              <div id="logoPlaceholder" class="logo-placeholder" style="display:none;">
+                Add official<br>HO Jewellers<br>logo
+              </div>
+            </div>
+
+            <h3>Built on Trust</h3>
+            <p>
+              Personal management, elegant collections, custom designs and
+              customer-focused service — all under one roof.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONNECT -->
+    <section class="cta" id="connect">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="section-kicker">Let's Talk</div>
+          <h2>Connect With Us</h2>
+          <p>
+            Have a jewellery requirement, custom design idea or service enquiry?
+          </p>
+          <a class="connect-btn" id="connectBtn" href="#" target="_blank" rel="noopener">
+            WhatsApp Us
+          </a>
+        </div>
+
+        <footer>
+          © <span id="year"></span> HO Jewellers · All Rights Reserved
+        </footer>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Floating WhatsApp -->
+<a class="whatsapp"
+   id="whatsappFloat"
+   href="#"
+   target="_blank"
+   rel="noopener"
+   aria-label="Chat with HO Jewellers on WhatsApp">
+  <img src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="WhatsApp">
+</a>
+
+<script>
+  /* =========================================================
+     HO JEWELLERS — EDIT ONLY THIS CONFIG
+     ========================================================= */
+  const CONFIG = {
+    whatsappNumber: "919798762719",
+    whatsappMessage:
+      "Hello HO Jewellers, I would like to enquire about your jewellery and services.",
+
+    storeAddress:
+      "Near Bank of Baroda, Main Road , GOLA, RAMGARH, JHARKHAND (IND)",
+
+    googleMapsLink:
+      "https://maps.app.goo.gl/puMn1zPDEx49484Z7",
+
+    gstin:
+      "XXXXXX"
+  };
+
+  /* Store details */
+  document.getElementById("storeAddress").textContent = CONFIG.storeAddress;
+  document.getElementById("gstin").textContent = CONFIG.gstin;
+
+  /* Google Maps */
+  document.getElementById("mapLink").href = CONFIG.googleMapsLink;
+
+  /* WhatsApp */
+  const cleanNumber = CONFIG.whatsappNumber.replace(/\D/g, "");
+  const whatsappURL =
+    "https://wa.me/" +
+    cleanNumber +
+    "?text=" +
+    encodeURIComponent(CONFIG.whatsappMessage);
+
+  document.getElementById("whatsappFloat").href = whatsappURL;
+  document.getElementById("connectBtn").href = whatsappURL;
+
+  /* Current year */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* Mobile menu */
+  const menuBtn = document.getElementById("menuBtn");
+  const navLinks = document.getElementById("navLinks");
+
+  menuBtn.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
+  });
+
+  /* Scroll reveal */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("show");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+
+  document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
